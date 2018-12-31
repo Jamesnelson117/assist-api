@@ -1,10 +1,10 @@
 const express = require('express'),
-    setupMiddleware = require('./api-setup-middleware'),
-    logger = require('./src/util/logger'),
+    setupMiddleware = require('./util/setupMiddleware'),
+    logger = require('./util/logger'),
     mongoose = require('mongoose'),
-    seed = require('./src/util/seed'),
-    config = require('./config/config'),
-    api = require('./src');
+    seed = require('./util/seed'),
+    config = require('../config/config'),
+    api = require('./index.js');
 
 if (config.seed) {
   // Connects to the Mongo DB
