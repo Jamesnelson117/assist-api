@@ -1,0 +1,23 @@
+version: '3'
+services:
+  assist-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=docker
+    ports:
+      - "3000:3000"
+    networks:
+      - assist-server-network
+    depends_on:
+      - "mongo"
+  mongo:
+    image: mongo
+    networks:
+      - assist-server-network
+    ports:
+      - "27017:27017"
+networks:
+  assist-server-network:
+    driver: bridge
