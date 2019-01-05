@@ -181,7 +181,7 @@ exports.postComment = (req, res, next) => {
   const requestID = req.request._id;
   const comment = req.body.comment;
 
-  UserSchema.findById(req.body.comment.author)
+  UserSchema.findById(comment.author)
     .exec()
     .then(() => {
       Request.findByIdAndUpdate(requestID, {
@@ -194,7 +194,7 @@ exports.postComment = (req, res, next) => {
         return res.status(200).send(updatedRequest);
       })
       .catch((error) => {
-        console.log(error);
+        next(error);
       })
     })
     .catch((error) => {
