@@ -1,5 +1,6 @@
 // Request Model
-const Request = require('./requestSchema');
+const Request = require('./requestSchema'),
+  UserSchema = require('../user/userSchema')
 
 /**
  * Middleware PARAMS method to add request to req on requests/:id requests
@@ -167,4 +168,36 @@ exports.deleteRequest = (req, res, next) => {
   error => {
     next(error)
   };
+};
+
+/**
+ * Middleware POST method to handle adding a request
+ *
+ * @param {request} req - Express request object
+ * @param {response} res - Express response object
+ * @param {next} next - Express next object
+ */
+exports.postComment = (req, res, next) => {
+  const requestID = req.request._id;
+  const comment = req.body.comment;
+
+  UserSchema.findById(req.body.comment.author)
+    .exec()
+    .then(() => {
+      Request.findByIdAndUpdate(requestID, {
+        $addToSet: {
+          comments: comment
+        }}, { new: true }
+      )
+      .exec()
+      .then((updatedRequest) => {
+        return res.status(200).send(updatedRequest);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    })
+    .catch((error) => {
+      next(error);
+    })
 };

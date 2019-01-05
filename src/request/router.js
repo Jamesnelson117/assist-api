@@ -24,5 +24,8 @@ router.route('/:id')
     requestController.deleteRequest
   ])
 
+router.route('/:id/comment')
+  .post(requestController.postComment);
+
 // Exports router
 module.exports = router;
