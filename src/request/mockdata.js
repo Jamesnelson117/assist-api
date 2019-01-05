@@ -7,8 +7,16 @@ let requests = [
     priority: 'Medium',
     assignee: "59316b89008c586bc2214319",
     author: "59316b89008c586bc2214318",
-    comments: ["10116b89008c586bc2214001", "10116b89008c586bc2214002", 
-              "10116b89008c586bc2214003", "10116b89008c586bc2214004"]
+    comments: [
+      {
+        author: '59316b89008c586bc2214319',
+        message: 'When does this need done by?'
+      },
+      {
+        author: '59316b89008c586bc2214319',
+        message: 'Not untill tuesday'
+      },
+    ]
   },
   {
     "_id": "59316b89008c586bc2214002",

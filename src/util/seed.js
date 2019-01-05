@@ -2,10 +2,8 @@ const logger = require('./logger'),
     _ = require('lodash'),
     UserSchema = require('../user/userSchema'),
     RequestSchema = require('../request/requestSchema'),
-    CommentSchema = require('../comment/commentSchema'),
     users = require('../user/mockdata'),
-    requests = require('../request/mockdata'),
-    comments = require('../comment/mockdata');
+    requests = require('../request/mockdata');
 
 // Logs message to the console
 logger.log('Seeding the DB');
@@ -34,7 +32,6 @@ const resetDB = () => {
   const resetModels = [
     UserSchema, 
     RequestSchema, 
-    CommentSchema
   ];
 
   // Maps through model array
@@ -72,30 +69,6 @@ const createUsers = data => {
 };
 
 /**
- * Creates a comment MongoDB row
- *
- * @param {Document} data - MongoDB document
- * @returns {Promise} - Promise
- */
-const createComments = data => {
-  // Logging to console
-  logger.log('Creating comments');
-
-  // Generates a collection of promises for each user row to be inserted
-  let promises = comments.map(comment => {
-    // Appends a new row for each user object
-    return createDocument(CommentSchema, comment);
-  });
-
-  // When all promises in collection have been fulfilled
-  return Promise.all(promises)
-    // Updated MongoDB data for next caller
-    .then((comments) => {
-      return 'Populated DB with three users, three requests and four comments';
-    });
-};
-
-/**
  * Creates a request MongoDB row
  *
  * @param {Document} data - MongoDB document
@@ -127,7 +100,6 @@ exports.initDB = () => {
   resetDB()
     .then(createUsers)
     .then(createRequests)
-    .then(createComments)
     .then(logger.log.bind(logger))
     .catch(logger.log.bind(logger))
 };
