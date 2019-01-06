@@ -88,7 +88,7 @@ const createRequests = data => {
   return Promise.all(promises)
     // Return completion message for logging
     .then((requests) => {
-      return _.merge({requests: requests}, data || {})
+      return 'Populated with three requests and three users';
     });
 };
 
