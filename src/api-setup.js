@@ -10,7 +10,7 @@ if (config.seed) {
   // Connects to the Mongo DB
   mongoose.connect(config.db.url);
   mongoose.connection.on('error',
-   console.error.bind(console, 'Failed to connect to the database')
+    console.error.bind(console, 'Failed to connect to the database')
   );
   seed.initDB();
 };
