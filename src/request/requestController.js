@@ -179,7 +179,7 @@ exports.deleteRequest = (req, res, next) => {
  */
 exports.postComment = (req, res, next) => {
   const requestID = req.request._id;
-  const comment = req.body.comment;
+  const comment = req.comment;
 
   UserSchema.findById(comment.author)
     .exec()
