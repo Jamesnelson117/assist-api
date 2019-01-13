@@ -70,7 +70,7 @@ exports.getAllUsers = (req, res, next) => {
  */
 exports.getOneUser = (req, res, next) => {
   // Response with req.user object from params
-  return res.status(200).send(req.user);
+  res.json(req.user);
 };
 
 /**
