@@ -15,19 +15,17 @@ let requestSchema = new Schema({
     type: String,
     required: true
   },
-  comments: [
-    {
-      author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-      },
-      message: {
-        type: String,
-        required: true
-      }
+  comments: [{
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true
     }
-  ],
+  }],
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

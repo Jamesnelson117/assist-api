@@ -25,11 +25,11 @@ exports.params = (req, res, next, id) => {
   })
   .populate({
     path: 'comments',
-    select: ['-__v'],
-    populate: {
-      path: 'author',
-      select: ['-password','-__v']
-    }
+    select: ['-__v']
+  })
+  .populate({
+    path: 'comments.author',
+    select: ['-password','-__v']
   })
   // executes query, returns promise
   .exec()
@@ -73,11 +73,11 @@ exports.getAllRequests = (req, res, next) => {
     })
     .populate({
       path: 'comments',
-      select: ['-__v'],
-      populate: {
-        path: 'author',
-        select: ['-password','-__v']
-      }
+      select: ['-__v']
+    })
+    .populate({
+      path: 'comments.author',
+      select: ['-password','-__v']
     })
     // executes query, returns promise
     .exec()
