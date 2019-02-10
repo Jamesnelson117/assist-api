@@ -57,7 +57,10 @@ exports.signIn = (req, res, next) => {
   const token = signToken(req.user);
 
   // Responds with token
-  res.status(200).send( {token: token} );
+  res.status(200).send({
+    token: token,
+    user: req.user
+  });
 };
 
 /**
