@@ -133,8 +133,8 @@ exports.vertifyAdmin = (req, res, next) => {
  */
 exports.verifyUser = (req, res, next) => {
   // Gets reference to username and password on req.body
-  let username = req.body.username;
-  let password = req.body.password;
+  const username = req.body.username,
+  password = req.body.password;
 
   // If username or password was not signed in
   if (!username || !password) {
@@ -159,6 +159,9 @@ exports.verifyUser = (req, res, next) => {
         // response with 401
         return res.status(401).send('Incorrect password provided');
       };
+
+      // unsets password prop
+      user.password = undefined;
 
       // attatch user to req.user
       req.user = user;
