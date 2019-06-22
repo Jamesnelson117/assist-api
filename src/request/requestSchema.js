@@ -35,6 +35,11 @@ let requestSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: false,
+  },
+  dateCreated: {
+    type: Date,
+    default: Date.now,
+    required: true
   }
 });
 
