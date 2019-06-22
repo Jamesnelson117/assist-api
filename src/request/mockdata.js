@@ -16,7 +16,8 @@ let requests = [
         author: "59316b89008c586bc2214319",
         message: "Not untill tuesday"
       },
-    ]
+    ],
+    dateCreated: 1561203118555
   },
   {
     "_id": "59316b89008c586bc2214002",
@@ -24,7 +25,8 @@ let requests = [
     message: 'Need a Macbook Pro rather than a PC',
     priority: 'Low',
     assignee: "59316b89008c586bc2214319",
-    author: "59316b89008c586bc2214319"
+    author: "59316b89008c586bc2214319",
+    dateCreated: 1561203235299
   },
   {
     "_id": "59316b89008c586bc2214003",
@@ -32,7 +34,8 @@ let requests = [
     message: 'My machine wont start. Help!',
     priority: 'High',
     assignee: "59316b89008c586bc2214319",
-    author: "59316b89008c586bc2214319"
+    author: "59316b89008c586bc2214319",
+    dateCreated: 1561203245934
   },
 ];
 
