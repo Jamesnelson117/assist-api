@@ -17,7 +17,8 @@ let requests = [
         message: "Not untill tuesday"
       },
     ],
-    dateCreated: 1561203118555
+    dateCreated: 1561203118555,
+    isCompleted: false
   },
   {
     "_id": "59316b89008c586bc2214002",
@@ -26,7 +27,8 @@ let requests = [
     priority: 'Low',
     assignee: "59316b89008c586bc2214319",
     author: "59316b89008c586bc2214319",
-    dateCreated: 1561203235299
+    dateCreated: 1561203235299,
+    isCompleted: true
   },
   {
     "_id": "59316b89008c586bc2214003",
@@ -35,7 +37,8 @@ let requests = [
     priority: 'High',
     assignee: "59316b89008c586bc2214319",
     author: "59316b89008c586bc2214319",
-    dateCreated: 1561203245934
+    dateCreated: 1561203245934,
+    isCompleted: true
   },
 ];
 

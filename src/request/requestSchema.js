@@ -40,6 +40,11 @@ let requestSchema = new Schema({
     type: Date,
     default: Date.now,
     required: true
+  },
+  isCompleted: {
+    type: Boolean,
+    default: false,
+    required: true
   }
 });
 
