@@ -9,18 +9,16 @@ const bodyParser = require('body-parser');
 const setupMiddleware = app => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-
-  app.use(setCrossOriginAccessControl(res, next));
-
-  return app;
-};
-
-const setCrossOriginAccessControl = (res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    
+  app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'content-type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
+  });
+
+  return app;
 };
 
 module.exports = setupMiddleware;
