@@ -10,7 +10,7 @@ const setupMiddleware = app => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.use(setAccessControl(res, next));
+  app.use(setCrossOriginAccessControl(res, next));
 
   return app;
 };
